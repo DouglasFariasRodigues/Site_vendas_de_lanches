@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="imgs/forja-systems.png" alt="Forja Systems" width="180" />
   <h1>Cardápio Digital · Projeto de Portfólio</h1>
   <p><strong>José Douglas Farias Rodrigues</strong> · Desenvolvedor</p>
   <p>Uma experiência web responsiva para apresentar catálogo, painel administrativo e sacola interativa.</p>
