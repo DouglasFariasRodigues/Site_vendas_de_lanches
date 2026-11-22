@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#090A0C" />
+    <meta name="description" content="Demonstração de cardápio digital criada pela Forja Systems. Produtos fictícios e pedidos simulados." />
+    <title>Forja Systems | Demo de cardápio digital</title>
+    <link rel="icon" href="imgs/forja-systems.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="forja-theme.css" />
+  </head>
+  <body>
+    <nav class="topbar">
+      <div class="topbar-inner">
+        <a href="#inicio" class="brand" aria-label="Forja Systems - início">
+          <img class="brand-logo-small" src="imgs/forja-systems.png" alt="Forja Systems" />
+          <span class="brand-copy">
+            <strong>Forja Systems</strong>
+            <small>Software · Sistemas · Soluções</small>
+          </span>
+        </a>
+        <div class="nav-links">
+          <a href="#catalogo" class="nav-link">Demonstração</a>
+          <a href="#sobre" class="nav-link">Sobre o projeto</a>
+          <span class="header-delivery"><i aria-hidden="true"></i> Ambiente demonstrativo</span>
+          <button id="cartButton" class="cart-button" type="button" aria-label="Abrir sacola">
+            <span aria-hidden="true">▣</span>
+            <span class="cart-text">Sacola</span>
+            <span id="cartCount" class="badge">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="inicio">
+      <div class="hero-content">
+        <p class="eyebrow">Software · Sistemas · Soluções</p>
+        <h1>Forja <span>Systems</span></h1>
+        <p class="hero-subtitle">Ideias, código e um futuro melhor.</p>
+        <p class="hero-description">Uma demonstração de cardápio digital responsivo, com catálogo, personalização e sacola interativa.</p>
+        <div class="hero-actions">
+          <a href="#catalogo" class="primary-btn">Explorar demonstração</a>
+          <a href="#sobre" class="secondary-btn">Conhecer o projeto</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <nav class="category-stories" aria-label="Navegue pelas categorias de demonstração">
+        <div id="categoryStories" class="category-stories-inner"></div>
+      </nav>
+
+      <section class="features" aria-label="Recursos demonstrados">
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">◈</span>
+          <div>
+            <strong>Catálogo organizado</strong>
+            <small>Produtos agrupados por categoria.</small>
+          </div>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">⌘</span>
+          <div>
+            <strong>Experiência responsiva</strong>
+            <small>Interface adaptada para celular e computador.</small>
+          </div>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">＋</span>
+          <div>
+            <strong>Sacola interativa</strong>
+            <small>Teste a seleção de opções e quantidades.</small>
+          </div>
+        </article>
+      </section>
+
+      <section id="catalogo">
+        <div class="section-header">
+          <div>
+            <p class="section-label">Projeto demonstrativo</p>
+            <h2>Cardápio digital</h2>
+            <p class="section-description">Os itens e valores são fictícios. Nenhum pedido ou dado pessoal é enviado ou armazenado.</p>
+          </div>
+        </div>
+        <div id="catalogGrid"></div>
+      </section>
+
+      <section class="about" id="sobre">
+        <div class="about-text">
+          <p class="section-label">Sobre o projeto</p>
+          <h2>Tecnologia feita para aproximar pessoas</h2>
+          <p>Esta demonstração apresenta uma experiência de catálogo digital desenvolvida pela Forja Systems. Ela ilustra organização de produtos, navegação por categorias e uma sacola responsiva.</p>
+          <p>Os dados exibidos são exemplos fictícios. O checkout apenas simula a conclusão e não envia informações para terceiros.</p>
+        </div>
+        <div class="about-highlight">
+          <div class="about-item">
+            <span class="feature-icon" aria-hidden="true">◇</span>
+            <div><strong>Interface clara</strong><small>Foco em leitura e navegação simples.</small></div>
+          </div>
+          <div class="about-item">
+            <span class="feature-icon" aria-hidden="true">▤</span>
+            <div><strong>Gestão preparada</strong><small>Painel administrativo como exemplo de integração.</small></div>
+          </div>
+          <div class="about-item">
+            <span class="feature-icon" aria-hidden="true">⬡</span>
+            <div><strong>Segurança por configuração</strong><small>Credenciais reais ficam fora do código público.</small></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-brand">Forja <span>Systems</span></p>
+          <p>Software · Sistemas · Soluções</p>
+          <p>Ideias, código e um futuro melhor.</p>
+        </div>
+        <div>
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#catalogo">Demonstração</a></li>
+            <li><a href="#sobre">Sobre o projeto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Informações</h4>
+          <ul class="footer-links">
+            <li><span>Produtos fictícios</span></li>
+            <li><span>Pedidos simulados</span></li>
+            <li><a href="/edicao">Painel de demonstração</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Forja Systems</span>
+        <span>Projeto demonstrativo · Nenhum pedido é enviado</span>
+      </div>
+    </footer>
+
+    <div id="cartModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card cart-card">
+        <button class="modal-close" data-close-modal="cartModal" type="button" aria-label="Fechar">×</button>
+        <h3>Sua sacola</h3>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-summary">
+          <div class="summary-row"><span>Modo</span><strong>Demonstração</strong></div>
+          <div class="summary-row"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
+        </div>
+        <div class="modal-actions">
+          <button id="checkoutBtn" class="primary-btn" type="button">Simular pedido</button>
+          <button class="secondary-btn" data-close-modal="cartModal" type="button">Voltar aos produtos</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="checkoutModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card checkout-card">
+        <button class="modal-close" data-close-modal="checkoutModal" type="button" aria-label="Fechar">×</button>
+        <h3>Finalizar demonstração</h3>
+        <form id="checkoutForm">
+          <p id="paymentDetails" class="demo-notice">Esta é uma simulação. Não informe dados pessoais: nenhuma informação será enviada ou salva.</p>
+          <button type="submit" class="primary-btn">Concluir simulação</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="cartBottomBar" class="cart-bottom-bar hidden" aria-live="polite">
+      <div class="cart-bottom-summary">
+        <small><span id="fabCartCount">0</span> itens na sacola</small>
+        <strong id="fabCartTotal">R$ 0,00</strong>
+      </div>
+      <button id="fabCart" class="cart-bottom-button" type="button">Ver sacola <span aria-hidden="true">→</span></button>
+    </div>
+
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

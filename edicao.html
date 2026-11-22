@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090A0C" />
+    <title>Editar demonstração | Forja Systems</title>
+    <link rel="icon" href="imgs/forja-systems.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="forja-theme.css" />
+  </head>
+  <body class="admin-body">
+    <main class="admin-shell">
+      <header class="admin-topbar">
+        <a class="admin-brand" href="/" aria-label="Forja Systems - início">
+          <img src="imgs/forja-systems.png" alt="Forja Systems" />
+          <span><strong>Forja Systems</strong><small>Painel demonstrativo</small></span>
+        </a>
+        <button id="logoutBtn" class="secondary-btn hidden" type="button">Sair</button>
+      </header>
+
+      <section id="loginPanel" class="admin-card admin-login-card">
+        <p class="section-label">Área administrativa de demonstração</p>
+        <h1>Acesso ao painel</h1>
+        <p class="admin-intro-copy">Configure credenciais próprias no ambiente do Netlify para testar o painel.</p>
+        <form id="loginForm" class="admin-form">
+          <label for="adminUser">Usuário</label>
+          <input id="adminUser" type="text" autocomplete="username" required />
+          <label for="adminPassword">Senha</label>
+          <input id="adminPassword" type="password" autocomplete="current-password" required />
+          <button class="primary-btn" type="submit">Entrar no painel</button>
+        </form>
+        <p id="loginError" class="admin-error" role="alert"></p>
+      </section>
+
+      <section id="adminPanel" class="admin-dashboard hidden">
+        <div class="admin-intro">
+          <div>
+            <p class="section-label">Forja Systems · Ambiente demonstrativo</p>
+            <h1>Catálogo de exemplo</h1>
+            <p class="admin-intro-copy">Edite os produtos fictícios da demonstração.</p>
+          </div>
+          <button id="newProductBtn" class="primary-btn" type="button">
+            <span aria-hidden="true">＋</span> Novo produto
+          </button>
+        </div>
+
+        <section class="admin-card admin-catalog-card" aria-labelledby="catalogTitle">
+          <div class="admin-catalog-heading">
+            <div>
+              <h2 id="catalogTitle">Cardápio cadastrado</h2>
+              <p id="catalogStatus" class="admin-status" role="status">Carregando produtos...</p>
+            </div>
+            <span id="productCount" class="admin-count">0 produtos</span>
+          </div>
+          <label class="admin-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="productSearch" type="search" placeholder="Buscar por nome ou categoria" />
+          </label>
+          <div id="productList" class="admin-product-grid"></div>
+        </section>
+
+        <section id="editorPanel" class="admin-card admin-editor hidden" aria-labelledby="formTitle">
+          <div class="admin-editor-heading">
+            <div>
+              <p class="section-label">Detalhes do produto</p>
+              <h2 id="formTitle">Novo produto</h2>
+              <p class="admin-intro-copy">Preencha as informações que aparecem no cardápio.</p>
+            </div>
+            <button id="closeEditorBtn" class="admin-icon-button" type="button" aria-label="Fechar edição">×</button>
+          </div>
+
+          <form id="productForm" class="admin-form">
+            <input id="productId" type="hidden" />
+            <div class="admin-field-grid">
+              <div class="admin-field">
+                <label for="productName">Nome do produto</label>
+                <input id="productName" type="text" placeholder="Ex.: Tapioca recheada" required />
+              </div>
+              <div class="admin-field">
+                <label for="productCategory">Categoria</label>
+                <input id="productCategory" type="text" list="categoryOptions" placeholder="Escolha uma seção ou crie outra" required />
+                <datalist id="categoryOptions"></datalist>
+                <small>Produtos com a mesma categoria aparecem juntos em uma seção no site.</small>
+              </div>
+            </div>
+
+            <div class="admin-field">
+              <label for="productDescription">Descrição</label>
+              <textarea id="productDescription" rows="3" placeholder="Conte um pouco sobre o produto"></textarea>
+            </div>
+
+            <div class="admin-options-heading">
+              <div>
+                <h3>Opções e preços</h3>
+                <p>Adicione sabores, tamanhos ou unidades e seus respectivos valores.</p>
+              </div>
+              <button id="addOptionBtn" class="secondary-btn" type="button">＋ Adicionar opção</button>
+            </div>
+            <div id="optionsEditor" class="admin-options-editor"></div>
+
+            <div class="admin-image-section">
+              <div class="admin-field">
+                <label for="productImage">Foto do produto</label>
+                <input id="productImage" type="file" accept="image/jpeg,image/png,image/webp" />
+                <small>JPG, PNG ou WEBP; até 5 MB.</small>
+              </div>
+              <div class="admin-preview-wrap">
+                <img id="imagePreview" class="admin-image-preview hidden" alt="Prévia da foto do produto" />
+                <div id="imagePlaceholder" class="admin-image-placeholder">
+                  <span aria-hidden="true">📷</span>
+                  <small>A prévia da foto aparece aqui</small>
+                </div>
+              </div>
+            </div>
+            <input id="productImageUrl" type="hidden" />
+
+            <div class="admin-form-footer">
+              <label class="admin-checkbox">
+                <input id="productActive" type="checkbox" checked />
+                <span>Produto ativo no cardápio</span>
+              </label>
+              <div class="admin-field admin-sort-field">
+                <label for="productSort">Ordem no cardápio</label>
+                <input id="productSort" type="number" min="0" value="0" />
+              </div>
+            </div>
+            <p id="adminMessage" class="admin-message" role="status"></p>
+            <div class="admin-form-actions">
+              <button id="cancelEditorBtn" class="secondary-btn" type="button">Cancelar</button>
+              <button id="saveProductBtn" class="primary-btn" type="submit">Salvar produto</button>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+    <script src="edicao.js"></script>
+  </body>
+</html>
