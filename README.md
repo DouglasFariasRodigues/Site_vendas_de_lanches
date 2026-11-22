@@ -1,77 +1,95 @@
 <div align="center">
   <img src="imgs/forja-systems.png" alt="Forja Systems" width="180" />
-  <h1>Forja Systems · Cardápio Digital</h1>
-  <p>Uma demonstração responsiva de catálogo, personalização e sacola de compras.</p>
+  <h1>Cardápio Digital · Projeto de Portfólio</h1>
+  <p><strong>José Douglas Farias Rodrigues</strong> · Desenvolvedor</p>
+  <p>Uma experiência web responsiva para apresentar catálogo, painel administrativo e sacola interativa.</p>
   <p>
-    <img src="https://img.shields.io/badge/status-demonstra%C3%A7%C3%A3o-ff6a00?style=for-the-badge" alt="Projeto demonstrativo" />
-    <img src="https://img.shields.io/badge/feito%20com-HTML%20%7C%20CSS%20%7C%20JavaScript-22252a?style=for-the-badge" alt="HTML, CSS e JavaScript" />
+    <a href="https://github.com/DouglasFariasRodigues">Meu perfil no GitHub</a>
+  </p>
+  <p>
+    <img src="https://img.shields.io/badge/projeto-portf%C3%B3lio-ff6a00?style=for-the-badge" alt="Projeto de portfólio" />
+    <img src="https://img.shields.io/badge/HTML-CSS-JavaScript-22252a?style=for-the-badge" alt="HTML, CSS e JavaScript" />
+    <img src="https://img.shields.io/badge/Supabase-Netlify-3FCF8E?style=for-the-badge" alt="Supabase e Netlify" />
   </p>
 </div>
 
 ---
 
-## ✨ Sobre
+## Sobre o projeto
 
-Este projeto de portfólio da **Forja Systems** mostra como um cardápio digital pode organizar produtos por categoria e funcionar em computadores e celulares.
+Este projeto demonstra uma solução de cardápio digital para pequenos negócios. A interface organiza os produtos por categoria e permite explorar opções, quantidades e uma sacola de compras em dispositivos móveis e computadores.
 
-Todos os nomes, produtos e preços são fictícios. A sacola e a finalização são apenas demonstrações: **nenhum pedido é enviado, nenhum pagamento é processado e nenhum dado pessoal é coletado**.
+Foi desenvolvido como projeto de portfólio para demonstrar habilidades de desenvolvimento front-end e integração com serviços web. O catálogo de exemplo usa produtos fictícios. A sacola e o checkout são simulados: **não há envio de pedidos, processamento de pagamentos nem coleta de dados pessoais**.
 
-## 🧩 O que a demonstração inclui
+## Funcionalidades
 
-- Catálogo organizado em categorias com navegação rápida.
-- Opções e preços para cada produto.
-- Sacola interativa com quantidades e total.
-- Painel de exemplo para cadastrar, editar e remover produtos.
-- Integração opcional com Supabase e função administrativa para Netlify.
-- Identidade visual Forja Systems e ilustrações criadas para esta demonstração.
+- Catálogo responsivo com navegação por categorias.
+- Produtos com opções, preços e imagens.
+- Sacola interativa com quantidades e cálculo do total.
+- Painel administrativo de demonstração para criar, editar e excluir produtos.
+- Upload de imagens para Supabase Storage.
+- API administrativa em Netlify Functions.
+- Migração SQL, políticas de leitura com Row Level Security e dados demonstrativos.
 
-## 🚀 Executar localmente
+## Tecnologias
 
-É necessário ter Python instalado. Na pasta do projeto, execute:
+| Área | Tecnologias |
+| --- | --- |
+| Interface | HTML, CSS e JavaScript |
+| Dados e imagens | Supabase, PostgREST e Supabase Storage |
+| Funções administrativas | Netlify Functions e Node.js |
+| Publicação | Netlify |
+
+## Decisões de implementação
+
+- A vitrine funciona sem credenciais, usando um catálogo fictício local.
+- A configuração pública do Supabase começa vazia em `config.js`.
+- A chave privilegiada do Supabase e as credenciais administrativas são lidas somente pelo backend, por variáveis privadas do Netlify.
+- A migração libera leitura pública apenas dos produtos ativos; operações administrativas usam a função do servidor.
+- O código da loja demonstrativa é independente e não inclui informações ou credenciais de clientes reais.
+
+## Executar localmente
+
+Com Python instalado, execute na pasta do projeto:
 
 ```powershell
 python -m http.server 8000
 ```
 
-Abra [http://localhost:8000](http://localhost:8000) no navegador. O catálogo de demonstração funciona sem configurar banco de dados.
+Abra [http://localhost:8000](http://localhost:8000). O catálogo e a sacola de demonstração funcionam sem configurar banco de dados.
 
-## ☁️ Usar Supabase e Netlify
+## Configurar uma demonstração completa
 
-Para experimentar o painel com um banco próprio:
+Use um projeto Supabase **separado para demonstração**:
 
-1. Crie um **projeto Supabase separado para demonstração**.
-2. Execute `supabase/migration.sql` no SQL Editor desse projeto.
-3. Configure `config.js` com a URL do projeto e uma chave publishable/anon. Essa chave fica visível no navegador; use Row Level Security.
-4. No Netlify, configure `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `ADMIN_SESSION_SECRET`, `ADMIN_USERNAME_1`, `ADMIN_PASSWORD_1` e, se necessário, o segundo usuário.
-5. Publique esta pasta no Netlify. A demonstração do painel ficará em `/edicao`.
+1. Execute `supabase/migration.sql` no SQL Editor do projeto.
+2. Preencha `config.js` com a URL do projeto e sua chave publishable/anon. Essa chave é pública; mantenha Row Level Security habilitada.
+3. Configure estas variáveis no Netlify:
+   - `SUPABASE_URL`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `ADMIN_SESSION_SECRET`
+   - `ADMIN_USERNAME_1` e `ADMIN_PASSWORD_1`
+   - opcionalmente, `ADMIN_USERNAME_2` e `ADMIN_PASSWORD_2`
+4. Publique esta pasta no Netlify. A página do painel fica em `/edicao`.
 
-O painel e as funções administrativas precisam do Netlify; não publique a chave `service_role` ou senhas no navegador, no GitHub ou em arquivos versionados. O arquivo `.env.example` contém apenas exemplos.
+**Nunca** coloque `service_role`, `sb_secret_`, senhas ou arquivos `.env` no navegador ou no Git. Veja [`SECURITY.md`](SECURITY.md).
 
-## 🔐 Segurança
-
-- A cópia não contém credenciais nem dados de uma loja real.
-- A configuração Supabase do navegador começa vazia em `config.js`.
-- Nunca use a chave `service_role` no front-end; mantenha-a apenas nas variáveis privadas do Netlify.
-- Não versione `.env`, `.netlify`, configurações locais ou credenciais.
-- Consulte [`SECURITY.md`](SECURITY.md) antes de configurar uma instância.
-
-## 🗂️ Estrutura
+## Estrutura
 
 ```text
-.
-├── index.html                 # Catálogo demonstrativo
-├── app.js                     # Categorias, produtos e sacola
-├── edicao.html                # Painel de exemplo
-├── edicao.js                  # Interações do painel
-├── styles.css                 # Layout e componentes
-├── forja-theme.css            # Tema Forja Systems
-├── netlify/functions/admin.js # API administrativa
-└── supabase/migration.sql     # Estrutura e catálogo fictício
+├── index.html                  # Vitrine e apresentação do projeto
+├── app.js                      # Catálogo, categorias e sacola
+├── edicao.html                 # Painel administrativo de exemplo
+├── edicao.js                   # Interações do painel
+├── styles.css                  # Estrutura e componentes
+├── forja-theme.css             # Identidade visual Forja Systems
+├── netlify/functions/admin.js  # API administrativa
+└── supabase/migration.sql      # Esquema, políticas e produtos fictícios
 ```
 
 ---
 
 <div align="center">
-  <strong>Forja Systems</strong><br />
-  <sub>Ideias, código e um futuro melhor.</sub>
+  <strong>José Douglas Farias Rodrigues</strong><br />
+  <a href="https://github.com/DouglasFariasRodigues">github.com/DouglasFariasRodigues</a>
 </div>

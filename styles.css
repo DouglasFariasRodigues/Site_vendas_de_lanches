@@ -601,6 +601,19 @@ img {
   color: var(--text-secondary, #a5a5a5);
 }
 
+.profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: var(--brand-caramel, #ff6b22);
+  font-weight: 800;
+}
+
+.profile-link:hover {
+  color: var(--accent-gold, #ff9a1f);
+}
+
 .about-highlight {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
